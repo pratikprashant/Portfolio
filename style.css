@@ -581,6 +581,7 @@ nav ul li a {
     }
     #header {
         background-image: url(images/prashantt.jpg);
+        background-size: cover;
     }
     .about-col-1 img {
         width: 100%;
@@ -592,12 +593,14 @@ nav ul li a {
     }
     .header-text h1,
     .header-text p{
-        font-size: 14px;
+        font-size: 24px;
         line-height: 20px;
+        line-height: 1.2;
         text-align: justify;
     }
     .header-text h1 {
-        font-size: 30px;
+        font-size: 44px;
+        line-height: 1.5;
     }
     .about-col-2 p{
         font-size: 20px;
@@ -735,7 +738,7 @@ nav ul li a {
 }
 
 /* For screens smaller than 400px */
-@media only screen and (max-width: 400px) {
+/* @media only screen and (max-width: 400px) {
     #header {
         background-image: url(images/Home-smaller.jpg);
         width: 100%;
@@ -745,4 +748,4 @@ nav ul li a {
         width: 100%;
         height: auto;
     }
-}
+} */
