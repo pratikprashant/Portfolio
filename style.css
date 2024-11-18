@@ -717,7 +717,7 @@ nav ul li a {
         margin-left: 32px;
         margin-right: 1px;
     }
-    /* #left-footer p, h1 {
+    #left-footer p, h1 {
         text-align: center;
     }
     #portfolio .work-list, #services .services-list {
@@ -734,7 +734,7 @@ nav ul li a {
     }
     .link-container a:hover {
         color: yellow;
-    } */
+    }
 }
 
 /* For screens smaller than 400px */
