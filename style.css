@@ -63,8 +63,9 @@ nav{
 }
 
 .logo{
-    width: 70px;
-    height: 70px;
+    margin-left: -22px;
+    width: 64px;
+    height: auto;
 }
 
 nav ul li{
@@ -204,9 +205,29 @@ img {
 }
 
 .sub-title{
+    margin-left: 200px;
     font-size: 60px;
     font-weight: 600;
     color: #fff;
+}
+
+.about-col-2 pre{
+    margin-left: 120px;
+}
+
+.about-col-2 p{
+    margin-left: 42px;
+}
+
+.about-col-2 div ul li{
+    margin-bottom: 20px;
+    margin-left: 0px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.about-col-2 div ul li span{
+    font-size: 24px;
 }
 
 .tab-titles{
@@ -280,7 +301,6 @@ p{
 }
 
 /* -------------------------services------------------- */
-
 #services{
     padding: 30px 0;
 }
@@ -555,197 +575,6 @@ hr {
     text-align: right;
 }
 
-/* ------------------CSS for small screens-------------------------------- */
 nav .fas {
     display: none;
 }
-/* ---------------------For Ipad use-------------------------------- */
-/* @media only screen and (max-width: 2048px) and (max-height: 1536px) {
-    
-    * {
-        margin: 0;
-        padding: 0;
-        font-family: 'Poppins', sans-serif;
-        box-sizing: border-box;
-    }
-
-nav ul li a {
-    font-size: 36px;
-}
-} */
-
-/* For mobile use */
-@media only screen and (max-width: 768px) and (max-height: 1024px) {
-    /* .logo{
-        margin-left: -62px;
-    } */
-    #header {
-        background-image: url(images/prashantt.jpg);
-        background-size: cover;
-    }
-    .about-col-1 img {
-        width: 100%;
-        height: auto;
-    }
-    .header-text {
-        margin-top: 100%;
-        font-size: 16px;
-    }
-    .header-text h1,
-    .header-text p{
-        font-size: 24px;
-        line-height: 20px;
-        line-height: 1.2;
-        text-align: justify;
-    }
-    .header-text h1 {
-        font-size: 44px;
-        line-height: 1.5;
-    }
-    .about-col-2 p{
-        font-size: 20px;
-        text-align: center;
-    }
-    .tab-titles p{
-        font-size: 24px;
-    }
-    .tab-contents li{
-        font-size: 22px;
-    }
-    .tab-contents ul li span{
-        font-size: 32px;
-    }
-    .tab-contents article{
-        font-size: 24px;
-        text-align: justify;
-    }
-    /* .services-list div{
-        width: 1500px;
-    } */
-    .work img{
-        width: 100%;
-        height: auto;
-    }
-
-    footer {
-        padding: 20px;
-        margin: 20px;
-    }
-
-    .footer-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .left-footer h1 {
-        font-size: 28px;
-    }
-
-    .left-footer p {
-        font-size: 16px;
-    }
-
-    .cta-btn {
-        padding: 10px 15px;
-        font-size: 14px;
-    }
-
-    .socialIcons {
-        justify-content: center;
-    }
-
-    /* .contact-details, .footer-bottom {
-        text-align: center;
-    } */
-
-    .footer-bottom {
-        flex-direction: column;
-    }
-
-    .logo-section .logo {
-        width: 36px;
-        height: 36px;
-    }
-
-    .copyright {
-        font-size: 10px;
-    }
-
-
-
-
-
-    nav .fas {
-        display: block;
-        font-size: 25px;
-    }
-    nav ul {
-        background-color: black;
-        position: fixed;
-        top: 0;
-        right: -200px;
-        width: 200px;
-        height: 100vh;
-        padding-top: 50px;
-        z-index: 2;
-        transition: right 0.5s;
-    }
-    nav ul li {
-        display: block;
-        margin: 25px;
-    }
-    nav ul .fas {
-        position: absolute;
-        top: 25px;
-        left: 25px;
-        cursor: pointer;
-    }
-    .sub-title {
-        font-size: 40px;
-        margin-bottom: 20px;
-    }
-    .about-col-1, .about-col-2 {
-        flex-basis: 100%;
-    }
-    .about-col-1 {
-        margin-bottom: 30px;
-    }
-    .tab-links {
-        font-size: 16px;
-        margin-left: 32px;
-        margin-right: 1px;
-    }
-    /* #left-footer p, h1 {
-        text-align: center;
-    }
-    #portfolio .work-list, #services .services-list {
-        grid-template-columns: 1fr;
-    }
-    .work, .services-list div {
-        width: 100%;
-        height: auto;
-        margin-bottom: 20px;
-    }
-    .link-container a {
-        padding: 0 64px;
-        color: #ff004f;
-    }
-    .link-container a:hover {
-        color: yellow;
-    } */
-}
-
-/* For screens smaller than 400px */
-/* @media only screen and (max-width: 400px) {
-    #header {
-        background-image: url(images/Home-smaller.jpg);
-        width: 100%;
-        height: 100%;
-    }
-    .about-col-1 img {
-        width: 100%;
-        height: auto;
-    }
-} */
