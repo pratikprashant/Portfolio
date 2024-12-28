@@ -55,6 +55,39 @@ body {
     height: auto;
 }
 
+/* Styling the button */
+button.CV {
+    border: 2px solid #ff0000; /* Red border */
+    border-radius: 8px;
+    background-color: #000; /* Black background */
+    padding: 12px 72px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+  /* Hover effect for the button */
+button.CV:hover {
+    background-color: #ff0000; /* Red background on hover */
+    box-shadow: 0 8px 16px rgba(255, 0, 0, 0.5); /* Red glow effect */
+    transform: translateY(-5px);
+}
+
+  /* Styling the link inside the button */
+button.CV a.CURRICULUM_VITAE {
+    font-size: 24px;
+    font-family: 'Arial', sans-serif;
+    color: #ffffff; /* White text */
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+  /* Change text color on hover */
+button.CV:hover a.CURRICULUM_VITAE {
+    color: #000; /* Black text on red background */
+}
+
 nav{
     height: 62px;
     width: 88%;
@@ -547,34 +580,6 @@ nav .fas {
 }
 
 @media only screen and (max-width: 600px) {
-
-    
-@media only screen and (max-width: 480px) {
-    .header-text h1 {
-        font-size: 28px; /* Further reduce font size for mobile */
-    }
-
-    .sub-title {
-        font-size: 36px; /* Adjust subtitle size */
-    }
-
-    .cta-btn {
-        padding: 10px 15px; /* Adjust button size */
-    }
-
-    .tab-links {
-        font-size: 16px; /* Smaller font size for tab links */
-    }
-
-    .tab-contents ul li {
-        font-size: 14px; /* Smaller font size for tab contents */
-    }
-
-    .footer-bottom {
-        flex-direction: column; /* Stack footer items vertically */
-        text-align: center; /* Center align footer text */
-    }
-}
     nav .fas {
         display: block;
         font-size: 25px;
