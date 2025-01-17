@@ -1,9 +1,9 @@
+/* General Reset and Body */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "poppins", sans-serif;
-  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 html {
@@ -15,6 +15,7 @@ body {
   color: #fff;
 }
 
+/* Header Section */
 #header {
   width: 100%;
   height: 100vh;
@@ -24,68 +25,52 @@ body {
   background-attachment: fixed;
   padding-top: 80px;
   position: relative;
-  /* overflow: hidden; */
 }
-
-/* .slide-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('images/Home.jpg') no-repeat center center/cover;
-    animation: slide 20s infinite; Adjust duration as needed
-} */
-/* 
-@keyframes slide {
-    0% { background-image: url('images/strange.jpg'); }
-    25% { background-image: url('images/lokiii.jpg'); }
-    50% { background-image: url('images/pxfuel.jpg'); }
-    75% { background-image: url('images/Home.jpg'); }
-    100% { background-image: url('images/pxfuel.jpg'); }
-} */
 
 .container {
   padding: 10px 10%;
 }
 
+/* Logo */
 .logo {
   margin-left: -22px;
   width: 64px;
   height: auto;
 }
 
+/* CV Button */
 .CV {
-  background-color: transparent; /* Transparent background */
-  border: 2px solid #d32f2f; /* Red border */
-  color: white; /* White text */
-  padding: 10px 20px; /* Some padding */
-  text-align: center; /* Center the text */
-  text-decoration: none; /* Remove underline */
-  display: inline-block; /* Make it inline-block */
-  font-size: 16px; /* Adjust font size */
-  margin: 5px 2px; /* Add some margin */
-  cursor: pointer; /* Pointer/hand icon on hover */
-  border-radius: 5px; /* Rounded corners */
-  transition: all 0.3s ease; /* Smooth transitions */
+  background-color: transparent;
+  border: 2px solid #d32f2f;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 .CV:hover {
-  background-color: #f44336; /* Bright red background on hover */
-  border-color: #f44336; /* Match border with background */
-  color: white; /* Keep text white */
+  background-color: #f44336;
+  border-color: #f44336;
+  color: white;
 }
 
 .CURRICULUM_VITAE {
-  color: white; /* White text inside link */
-  text-decoration: none; /* Remove underline */
-  display: block; /* Ensure link fills the button */
+  color: white;
+  text-decoration: none;
+  display: block;
 }
 
 .CURRICULUM_VITAE:hover {
-  text-decoration: none; /* No underline on hover */
+  text-decoration: none;
 }
 
+/* Navigation Bar */
 nav {
   height: 62px;
   width: 88%;
@@ -93,17 +78,19 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* flex-wrap: wrap; */
   position: fixed;
   font-size: 20px;
   top: 0;
   z-index: 1000;
 }
 
+nav ul {
+  display: flex;
+  gap: 20px;
+}
+
 nav ul li {
-  display: inline-block;
   list-style: none;
-  margin: 10px 20px;
 }
 
 nav ul li a {
@@ -121,23 +108,20 @@ nav ul li a::after {
   position: absolute;
   left: 0;
   bottom: -6px;
+  transition: width 0.3s ease-in-out;
 }
 
 nav ul li a:hover::after {
   width: 100%;
 }
 
-.header-text h1 span {
-  color: #ff004f;
-}
-
+/* Header Text */
 .header-text {
-  position: relative; /* Ensure it's positioned relative to the header */
-  color: white; /* Change to a contrasting color */
-  font-size: 36px; /* Adjust the font size as needed */
-  margin-top: 20%; /* Adjust vertical spacing */
-  text-align: left; /* Center the text */
-  z-index: 2; /* Ensure it's above other elements */
+  color: white;
+  font-size: 36px;
+  margin-top: 20%;
+  text-align: left;
+  z-index: 2;
 }
 
 .header-text h1 {
@@ -145,34 +129,70 @@ nav ul li a:hover::after {
   margin-top: 20px;
 }
 
-/* Typing effect */
+.header-text h1 span {
+  color: #ff004f;
+}
+
+/* Typing Effect */
 .typing-text {
   white-space: nowrap;
   overflow: hidden;
-  border-right: 2px solid; /* Blinking cursor effect */
-  width: 12ch; /* Ensure consistent width for the typing area */
+  border-right: 2px solid;
+  width: 12ch;
   display: inline-block;
-  vertical-align: bottom; /* Align text properly */
-  animation: typing 3s steps(12) infinite, blink 0.75s step-end infinite;
+  vertical-align: bottom;
+  animation: typing 3s steps(11) infinite, blink 0.75s step-end infinite;
 }
 
-/* Keyframes for typing animation */
 @keyframes typing {
   0% {
     width: 0;
   }
+
   50% {
     width: 11ch;
-  } /* Adjust this based on the length of the text */
+  }
+
   100% {
     width: 0;
   }
 }
 
-/* Blinking cursor effect */
 @keyframes blink {
   50% {
     border-color: transparent;
+  }
+}
+
+@media (max-width: 768px) {
+  #header{
+    background-image: url(images/Home-smaller.jpg);
+  }
+  nav ul {
+    flex-direction: column;
+    /* align-items: center; */
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  .header-text {
+    font-size: 24px;
+    margin-top: 25%;
+  }
+
+  .header-text h1 {
+    font-size: 40px;
+  }
+
+  .header-text h1{
+    margin-top: 300px;
+  }
+
+  .CV {
+    font-size: 12px;
+    padding: 6px 12px;
   }
 }
 
@@ -339,6 +359,47 @@ p {
   text-align: justify;
 }
 
+@media (max-width: 768px) {
+  #about{
+    margin-top: 0;
+  }
+  .about-col-1 {
+    flex-basis: 100%;
+    margin-bottom: 20px;
+  }
+  .sub-title {
+    margin-left: 0;
+    text-align: center;
+    font-size: 32px;
+    /* text-align: left; */
+  }
+  .about-col-2 pre {
+    margin-left: 0;
+    font-size: 16px;
+  }
+  .tab-titles p {
+    font-size: 16px;
+    margin-left: 0;
+  }
+  .tab-contents ul li{
+    font-size: 16px;
+    text-align: left;
+  }
+  .tab-contents  ul li artical{
+    font-size: 16px;
+  }
+  .artical{
+    font-size: 16px;
+    text-align: justify;
+  }
+.link-container a{
+  font-size: 24px;
+  margin-right: -150px;
+  text-align: center;
+  justify-content: space-evenly;
+}
+}
+
 /* -------------------------services------------------- */
 #services {
   padding: 30px 0;
@@ -446,6 +507,7 @@ p {
   border-radius: 50%;
   text-align: center;
 }
+
 .work:hover img {
   transform: scale(1.1);
 }
@@ -584,11 +646,92 @@ nav .fas {
   display: none;
 }
 
+@media (max-width: 768px) {
+  footer {
+    width: 90%; /* Set the footer width to 80% */
+    margin: 72px auto; /* Center the footer horizontally */
+    color: #fff;
+    background-image: url(images/footer.jpg);
+    padding: 10px;
+    border-radius: 32px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .left-footer h1 {
+    font-size: 20px;
+    margin: 0;
+    text-align: center;
+  }
+
+  .left-footer p {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .action-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .cta-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .right-footer {
+    text-align: center;
+  }
+  .socialIcons a{
+    font-size: 16px;
+  }
+
+  .socialIcons {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .contact-details p {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* Align items vertically */
+    gap: 5px; /* Minimize horizontal spacing */
+  }
+  
+  .logo-section .logo {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .copyright {
+    font-size: 12px;
+    color: #888;
+    margin-right: 10px;
+  }  
+
+  /* Hide "Let's" and "chat." text on smaller screens */
+  .hide-on-small {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   nav .fas {
     display: block;
     font-size: 25px;
+    /* margin-right: 50px; */
   }
+
   nav ul {
     background-color: black;
     position: fixed;
@@ -600,10 +743,12 @@ nav .fas {
     z-index: 2;
     transition: right 0.5s;
   }
+
   nav ul li {
     display: block;
     margin: 25px;
   }
+
   nav ul .fas {
     position: absolute;
     top: 25px;
