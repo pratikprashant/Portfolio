@@ -1,70 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script
-      src="https://kit.fontawesome.com/c4254e24a8.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>Prashant's Portfolio</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <div class="header">
-      <div class="side-nav">
-        <div class="user">
-          <img src="images/PPT.jpg" class="user-img" />
-          <!-- <div class="overlay">My Name is John</div> -->
-        </div>
-
-        <ul class="nav-links">
-          <li class="active">
-            <i class="fa-solid fa-house"></i><a href="#" onclick="window.location.href='index.html'">Home</a>
-          </li>
-          
-          <li>
-            <i class="fa-solid fa-layer-group"></i>
-            <a href="#" onclick="window.location.href='portfolio.html'">Portfolio</a>
-          </li>
-          <li><i class="fa-solid fa-file-lines"></i><a href="#" onclick="window.location.href='cv.html'">CV</a></li>
-          <li><i class="fa-solid fa-user-group"></i><a href="#" onclick="window.location.href='Clients.html'">Clients</a></li>
-          <li><i class="fa-solid fa-message"></i><a href="#" onclick="window.location.href='contact.html'">Contact</a></li>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Header Section -->
+  <div id="header">
+    <div class="container">
+      <nav>
+        <img src="images/logo.png" class="logo" alt="Logo" />
+        <ul id="sidemenu">
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <i class="fas fa-times" onclick="closeMenu()"></i>
         </ul>
-        <hr class="line" />
-        <div class="social-section">
-          <p class="para">Find With Me</p>
-          <div class="social-icons">
-            <a href="https://www.instagram.com/timalsinapratik007/"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/prashant-pratik-timalsina-906327335/"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-            <a href="https://github.com/pratikprashant"><i class="fa-brands fa-github"></i></a>
+        <i class="fas fa-bars" onclick="openMenu()"></i>
+      </nav>
+      <div class="header-text">
+        <h1>Hi, I'm <span>Your Name</span></h1>
+        <p class="typing-text">Web Developer</p>
+        <a href="cv.pdf" class="CV"><span class="CURRICULUM_VITAE">Download CV</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <div id="about">
+    <div class="container">
+      <div class="row">
+        <div class="about-col-1">
+          <img src="images/profile.jpg" alt="Profile Picture" />
+        </div>
+        <div class="about-col-2">
+          <h1 class="sub-title">About Me</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel odio nec mi tempor dignissim.</p>
+          <div class="tab-titles">
+            <p class="tab-links active-link" onclick="openTab('skills')">Skills</p>
+            <p class="tab-links" onclick="openTab('experience')">Experience</p>
+            <p class="tab-links" onclick="openTab('education')">Education</p>
+          </div>
+          <div class="tab-contents active-tab" id="skills">
+            <ul>
+              <li><span>Web Development</span><br>HTML, CSS, JS</li>
+              <li><span>Frameworks</span><br>React, Django</li>
+            </ul>
+          </div>
+          <div class="tab-contents" id="experience">
+            <ul>
+              <li><span>2023 - Present</span><br>Frontend Developer at XYZ</li>
+            </ul>
+          </div>
+          <div class="tab-contents" id="education">
+            <ul>
+              <li><span>2020 - 2023</span><br>Bachelor's in Computer Science</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <main class="content">
-      <img src="images/home.png" width="350px" class="myphoto" />
-      <div class="lauda">
-        <h1 class="starter-home">Hello</h1>
-        <p class="name">I'm Prashant Pratik</p>
-        <p class="pro">A <span class="typing-text">Web Designer</span></p>
-        <p class="details">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti dolore nesciunt, dolor consequatur modi perspiciatis quis inventore ducimus, ratione laudantium ipsa, natus iure saepe cumque eaque? Impedit hic, a possimus quod, veniam in numquam modi expedita blanditiis at dolorum excepturi.
-        </p>
-        <button class="btn" onclick="window.location.href='portfolio.html'">
-          View Projects <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <!-- <a href=""></a> -->
+  <!-- Services Section -->
+  <div id="services">
+    <div class="container">
+      <h1 class="sub-title">My Services</h1>
+      <div class="services-list">
+        <div>
+          <i class="fas fa-code"></i>
+          <h2>Web Development</h2>
+          <p>Responsive and optimized websites using modern tools and frameworks.</p>
+        </div>
+        <div>
+          <i class="fas fa-paint-brush"></i>
+          <h2>UI/UX Design</h2>
+          <p>Intuitive and modern user interface designs tailored to your audience.</p>
+        </div>
       </div>
-    </main>
-  </body>
+    </div>
+  </div>
+
+  <!-- Portfolio Section -->
+  <div id="portfolio">
+    <div class="container">
+      <h1 class="sub-title">My Work</h1>
+      <div class="work-list">
+        <div class="work">
+          <img src="images/work1.jpg" alt="Project Image" />
+          <div class="layer">
+            <h3>Project Title</h3>
+            <p>Project description goes here.</p>
+            <a href="#"><i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="btn">See More</a>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-container">
+      <div class="left-footer">
+        <h1><span>Let's</span> chat.</h1>
+        <p>I’m currently available to take on new projects.</p>
+        <div class="action-container">
+          <button class="cta-btn">Email Me</button>
+        </div>
+      </div>
+      <div class="right-footer">
+        <div class="socialIcons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+        <div class="contact-details">
+          <p>Email: you@example.com</p>
+          <p>Phone: +123 456 7890</p>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="footer-bottom">
+      <div class="logo-section">
+        <img src="images/logo.png" class="logo" alt="Logo" />
+      </div>
+      <p class="copyright">© 2025 Your Name</p>
+    </div>
+  </footer>
+
+  <script>
+    const tabLinks = document.querySelectorAll('.tab-links');
+    const tabContents = document.querySelectorAll('.tab-contents');
+
+    function openTab(tabName) {
+      tabLinks.forEach(link => link.classList.remove('active-link'));
+      tabContents.forEach(content => content.classList.remove('active-tab'));
+      event.currentTarget.classList.add('active-link');
+      document.getElementById(tabName).classList.add('active-tab');
+    }
+
+    function openMenu() {
+      document.getElementById("sidemenu").style.right = "0";
+    }
+
+    function closeMenu() {
+      document.getElementById("sidemenu").style.right = "-200px";
+    }
+  </script>
+</body>
 </html>
