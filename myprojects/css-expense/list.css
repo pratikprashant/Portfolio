@@ -1,0 +1,205 @@
+.expense-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.expense-table {
+  overflow-x: auto;
+}
+
+.expense-table table {
+  min-width: 600px;
+  width: 100%;
+  border-collapse: collapse;
+  margin: auto;
+}
+
+.en {
+  width: 300px;
+}
+.am {
+  width: 120px;
+}
+.ct {
+  width: 125px;
+}
+.dt {
+  width: 120px;
+}
+.at {
+  width: 144px;
+}
+
+.expense-table th,
+.expense-table td {
+  padding: 10px;
+  border: 3px solid rgb(0, 0, 0);
+  color: white;
+  background-color: #6d6969;
+  text-align: left;
+}
+.expense-table th {
+  background-color: #3b3b3b;
+  color: white;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  max-width: 90%;
+  background: #f0f0f0;
+  border-radius: 12px;
+  text-align: center;
+  color: #333;
+  transform: translate(-50%, -50%) scale(0.1);
+  transition: transform 0.4s ease, top 0.4s ease;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.popup.active {
+  display: block;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup img {
+  width: 72px;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.popup h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 20px 0 10px;
+  color: #ff0800;
+}
+
+.popup p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #000000;
+}
+
+.popup button {
+  width: 45%;
+  margin: 10px;
+  padding: 12px 0;
+  background: #7da2a9;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.popup button:hover {
+  background-color: #5cb85c;
+}
+
+.popup button#btnSuccess:hover {
+  background-color: #5cb85c;
+}
+
+#expenseChart {
+  margin: 20px auto;
+  max-width: 400px;
+}
+.chart-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.edit-btn, .delete-btn{
+  color: white;
+  background-color: red;
+  border: none;
+  padding: 6px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+}
+
+.delete-btn:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+}
+
+.year{
+  margin: 20px auto;
+  color: white;
+  font-size: 20px;
+}
+#yearSelect{
+  /* color: white; */
+  background-color: rgb(255, 255, 255);
+  border: none;
+  padding: 6px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#downloadExcelBtn{
+  color: white;
+  background-color: red;
+  border: none;
+  padding: 6px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#downloadExcelBtn:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .expense-table{
+    width: 100%;
+  }
+  .en{
+    width: 20px;
+  }
+  .am{
+    width: 10px;
+  }
+  .ct{
+    width: 16px;
+  }
+  .dc{
+    width: 0;
+  }
+  .dt{
+    width: 16px;
+  }
+  .at{
+    width: 10px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Expense Tracker</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" type="image/png" href="images/app-logo.png">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css-expense/style.css" />
+    <link rel="stylesheet" href="css-expense/global.css" />
+  </head>
+  <body class="bodyhome">
+    <div class="wholepage">
+      <nav class="navbar">
+        <img src="images/logo.png" width="50" alt="" />
+        <ul class="links">
+          <li><a href="expense-index.html">Home</a></li>
+          <li><a href="list.html">List</a></li>
+        </ul>
+      </nav>
+
+      <h1><span>E</span>XPENSE <span>T</span>RACKER</h1>
+      <div class="form-content">
+        <form id="expense-form">
+          <label for="title">Expense Name</label>
+          <input
+            id="expense-name"
+            type="text"
+            placeholder="Enter Expenses Name"
+            required
+          />
+
+          <label for="amount">Amount</label>
+          <input
+            id="expense-amount"
+            type="number"
+            placeholder="Enter Amount"
+            required
+          />
+
+          <label for="amount">Select Category</label>
+          <select id="expense-category" required>
+            <option value="" disabled selected hidden>Select Category</option>
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Stationery">Stationery</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="Category">Debit or Credit</label>
+          <select id="expense-type" required>
+            <option value="" disabled selected hidden>Select Type</option>
+            <option value="debit">Debit</option>
+            <option value="credit">Credit</option>
+          </select>
+
+          <label for="date">Date</label>
+          <input type="date" id="expense-date" required />
+          <button class="btn" type="submit">Add Expense</button>
+          <!-- <button class="btn" id="downloadBtn">Download Excel</button> -->
+
+          <div class="total-amount">
+            <strong>Credit:</strong>₹<span id="total-credit">0</span>
+            <hr class="line" />
+            <strong>Debit:</strong>₹<span id="total-debit">0</span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const expenseForm = document.getElementById("expense-form"); // Get the form element
+
+        // Get elements for displaying totals
+        const debitTotalElement = document.getElementById("total-debit");
+        const creditTotalElement = document.getElementById("total-credit");
+
+        // Load stored totals from localStorage
+        function loadTotals() {
+          const debitTotal =
+            parseFloat(localStorage.getItem("debitTotal")) || 0;
+          const creditTotal =
+            parseFloat(localStorage.getItem("creditTotal")) || 0;
+
+          debitTotalElement.textContent = debitTotal.toFixed(2);
+          creditTotalElement.textContent = creditTotal.toFixed(2);
+        }
+
+        loadTotals(); // Load totals on page load
+
+        expenseForm.addEventListener("submit", (event) => {
+          event.preventDefault(); // Prevent form submission
+
+          const name = document.getElementById("expense-name").value;
+          const amount = parseFloat(
+            document.getElementById("expense-amount").value
+          );
+          const category = document.getElementById("expense-category").value;
+          const type = document.getElementById("expense-type").value;
+          const date = document.getElementById("expense-date").value;
+
+          if (!name || isNaN(amount) || !category || !type || !date) {
+            alert("Please fill in all fields.");
+            return;
+          }
+
+          const expense = {
+            id: Date.now(),
+            name,
+            amount,
+            category,
+            type,
+            date,
+          };
+
+          // Get existing expenses from localStorage
+          let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+          expenses.push(expense);
+
+          // Save updated expenses
+          localStorage.setItem("expenses", JSON.stringify(expenses));
+
+          // Update totals
+          let debitTotal = parseFloat(localStorage.getItem("debitTotal")) || 0;
+          let creditTotal =
+            parseFloat(localStorage.getItem("creditTotal")) || 0;
+
+          if (type === "debit") {
+            debitTotal += amount;
+            localStorage.setItem("debitTotal", debitTotal);
+          } else {
+            creditTotal += amount;
+            localStorage.setItem("creditTotal", creditTotal);
+          }
+
+          loadTotals(); // Update displayed totals
+          alert("Expense added successfully!");
+          window.location.href = "list.html"; // Redirect to List page
+        });
+        // Check if editing an existing expense
+        const editData = JSON.parse(localStorage.getItem("editExpense"));
+        if (editData) {
+          document.getElementById("expense-name").value = editData.name;
+          document.getElementById("expense-amount").value = editData.amount;
+          document.getElementById("expense-category").value = editData.category;
+          document.getElementById("expense-type").value = editData.type;
+          document.getElementById("expense-date").value = editData.date;
+
+          // Remove the old expense from localStorage
+          let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+          expenses = expenses.filter((exp) => exp.id !== editData.id);
+          localStorage.setItem("expenses", JSON.stringify(expenses));
+
+          // Also adjust the totals
+          let debitTotal = parseFloat(localStorage.getItem("debitTotal")) || 0;
+          let creditTotal =
+            parseFloat(localStorage.getItem("creditTotal")) || 0;
+
+          if (editData.type === "debit") {
+            debitTotal -= parseFloat(editData.amount);
+            localStorage.setItem("debitTotal", debitTotal);
+          } else {
+            creditTotal -= parseFloat(editData.amount);
+            localStorage.setItem("creditTotal", creditTotal);
+          }
+
+          // Clear the edit data so next time form is empty
+          localStorage.removeItem("editExpense");
+        }
+      });
+    </script>
+  </body>
+</html>

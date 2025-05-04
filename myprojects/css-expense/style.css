@@ -1,0 +1,155 @@
+.bodyhome {
+  background: linear-gradient(to bottom, #292828, #000000);
+  height: auto;
+  font-family: "Courier New", Courier, monospace;
+  height: 100vh;
+  animation: slideIn 1s ease-in-out;
+}
+
+h1 {
+  animation: popIn 3s ease-in-out;
+  text-align: center;
+  padding: 30px 0;
+  color: white;
+}
+
+span {
+  color: red;
+}
+
+#expense-form {
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  background: linear-gradient(to bottom, #272222, #2b2929);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  width: 27%;
+  margin: auto;
+  padding: 20px;
+  border: none;
+}
+
+::placeholder{
+  color: white;
+  opacity: 0.4;
+}
+
+#expense-category{
+  color: white;
+  opacity: 0.4;
+}
+
+#expense-date{
+  color: white;
+  opacity: 0.4;
+}
+
+#expense-type{
+  color: white;
+  opacity: 0.4;
+}
+
+label {
+  font-size: 16px;
+  padding: 8px 0;
+  color: rgb(255, 255, 255);
+}
+
+input,
+select {
+  padding: 8px 0;
+  background-color: rgb(48, 44, 44);
+  border: 1px solid black;
+  border-radius: 10px;
+  color: white;
+  padding-left: 1em;
+  border: none;
+}
+
+option{
+  color: white;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px 0;
+  animation: popIn 2s ease-in-out;
+}
+
+.btn {
+  background: red;
+  color: white;
+  border-radius: 10px;
+}
+.btn:hover {
+  opacity: 0.8;
+  background: rgb(114, 23, 23);
+}
+
+.total-amount {
+  color: white;
+  padding: 8px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.line {
+  border: 1px solid rgb(255, 255, 255);
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  label {
+    font-size: 14px;
+  }
+  .form-content {
+    padding: 0 20px;
+  }
+  #expense-form {
+    width: 100%;
+  }
+  .form-content {
+    width: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
